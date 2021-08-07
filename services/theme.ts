@@ -55,6 +55,6 @@ const theme: Theme = {
       fontSize: 2,
     },
   },
-};
+} as Theme;
 
 export default theme;
