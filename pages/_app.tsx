@@ -26,7 +26,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Head>
         <title>The Foundation - Dr. Kobros Foundation</title>
       </Head>
-      <GoogleFonts href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;900&display=swap" />
+      <GoogleFonts href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;0,900;1,400&display=swap" />
 
       <Component {...pageProps} />
     </ThemeProvider>

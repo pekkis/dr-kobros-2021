@@ -7,6 +7,7 @@ const theme: Theme = {
   colors: {
     ...funk.colors,
     link: "#442b17",
+    certborder: "#e3d5ca",
   },
 
   sizes: {
@@ -16,10 +17,17 @@ const theme: Theme = {
   headings: {
     edmunds: {
       fontFamily: "edmunds",
+      letterSpacing: "normal",
+      fontWeight: 400,
     },
   },
 
   links: {
+    cert: {
+      color: "rgb(68, 43, 23)",
+      textDecoration: "underline",
+    },
+
     paginator: {
       paddingY: 1,
       paddingX: 2,

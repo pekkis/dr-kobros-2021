@@ -15,7 +15,6 @@ const InternalLink: FC<Props> = ({
   href,
   ...rest
 }) => {
-  console.log("href");
   return (
     <Link href={href} passHref {...rest}>
       <a
