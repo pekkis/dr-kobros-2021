@@ -24,7 +24,8 @@
   },
   "devDependencies": {
     "@types/luxon": "^1.27.1",
-    "@types/react": "17.0.16",
+    "@types/react": "^17.0.16",
+    "@types/react-dom": "^17.0.9",
     "@types/uuid": "^8.3.1",
     "eslint": "7.32.0",
     "eslint-config-next": "11.0.1",
