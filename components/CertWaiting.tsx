@@ -9,6 +9,11 @@ const CertWaiting = () => {
     return null;
   }
 
+  const elm = document.getElementById("modal");
+  if (!elm) {
+    return null;
+  }
+
   return createPortal(
     <Flex
       sx={{
@@ -25,7 +30,7 @@ const CertWaiting = () => {
     >
       <Spinner />
     </Flex>,
-    document.getElementById("modal")
+    elm
   );
 };
 
