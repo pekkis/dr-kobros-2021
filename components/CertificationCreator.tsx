@@ -9,6 +9,7 @@ import ragnarSignature from "../assets/signature-kobros.png";
 import axios from "axios";
 import { useRouter } from "next/router";
 import { DateTime } from "luxon";
+import CertWaiting from "./CertWaiting";
 
 type Props = {
   certificate: CertificationType;
@@ -18,6 +19,8 @@ type Props = {
 const CertificationCreator: FC<Props> = ({ certificate, setCertificate }) => {
   const [gaylordSigned, setGaylordSigned] = useState<boolean>(false);
   const [ragnarSigned, setRagnarSigned] = useState<boolean>(false);
+
+  const [submitting, setSubmitting] = useState<boolean>(false);
 
   const router = useRouter();
 
@@ -51,6 +54,8 @@ const CertificationCreator: FC<Props> = ({ certificate, setCertificate }) => {
       return;
     }
 
+    setSubmitting(true);
+
     axios
       .post<CertificationType>(
         `${process.env.NEXT_PUBLIC_API}/api/certificate`,
@@ -64,6 +69,7 @@ const CertificationCreator: FC<Props> = ({ certificate, setCertificate }) => {
 
   return (
     <CertificationBase>
+      {submitting && <CertWaiting />}
       <Box
         as="header"
         sx={{

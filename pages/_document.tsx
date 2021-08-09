@@ -10,6 +10,7 @@ class MyDocument extends Document {
           <InitializeColorMode />
           <Main />
           <NextScript />
+          <div id="modal"></div>
         </body>
       </Html>
     );
