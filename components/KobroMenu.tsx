@@ -17,6 +17,8 @@ const KobroMenu = () => {
         <Link href="/">Dr. Kobros recommends</Link>
         {" | "}
         <Link href="/certificate">Dr. Kobros Certifications</Link>
+        {" | "}
+        <Link href="/kobro-dollar">Kobro$</Link>
 
         {/*
         {" | "}<Link href="/dashboard">Dr. Kobros Dashboard</Link>

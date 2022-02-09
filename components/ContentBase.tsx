@@ -10,7 +10,7 @@ type Props = {
   title: string;
 };
 
-const ContentBase: FC<Props> = ({ children }) => {
+const ContentBase: FC<Props> = ({ children, title }) => {
   return (
     <Container as="main" py={4} px={2}>
       <Box
@@ -21,7 +21,7 @@ const ContentBase: FC<Props> = ({ children }) => {
       >
         <Image alt="Dr. Kobros" src={logo} />
         <Heading as="h1" variant="headings.edmunds">
-          The Dr. Kobros Foundation
+          {title}
         </Heading>
       </Box>
 
