@@ -15,6 +15,7 @@ import {
   LinearScale,
   Title,
   CategoryScale,
+  ChartData,
 } from "chart.js";
 import { range } from "ramda";
 
@@ -27,13 +28,13 @@ ChartJS.register(
   Title
 );
 
-const getData = () => {
+const getData = (): ChartData<"line", number[] | string[], string> => {
   const startDate = DateTime.utc(2008, 1, 1);
   const now = DateTime.now().toUTC();
 
   const numberOfDataPoints = 121;
 
-  return [
+  const [labels, data] = [
     range(0, numberOfDataPoints).map((x) => {
       const thisDate = now.minus({
         months: numberOfDataPoints - x,
@@ -56,6 +57,19 @@ const getData = () => {
     }),
   ];
 
+  const dataset = {
+    labels,
+    datasets: [
+      {
+        id: 1,
+        label: "",
+        data,
+      },
+    ],
+  };
+
+  return dataset;
+
   /*
   return {
     labels: ["Jun", "Jul", "Aug"],
@@ -71,21 +85,6 @@ const getData = () => {
 };
 
 const KobroDollarPage = () => {
-  const [labels, data] = getData();
-
-  const dataset = {
-    labels,
-    datasets: [
-      {
-        id: 1,
-        label: "",
-        data,
-      },
-    ],
-  };
-
-  console.log("Data set", dataset);
-
   return (
     <>
       <Head>
@@ -125,7 +124,7 @@ const KobroDollarPage = () => {
         <Box my={4}>
           <h2>Kobro$ / US$ valuation chart, 120 months</h2>
 
-          <Line datasetIdKey="id" data={dataset} options={{}} />
+          <Line datasetIdKey="id" data={getData()} options={{}} />
         </Box>
       </ContentBase>
     </>
