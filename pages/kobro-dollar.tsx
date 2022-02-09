@@ -95,10 +95,10 @@ const KobroDollarPage = () => {
       <ContentBase title="Kobro$, the centralized crypto currency">
         <Box my={4}>
           <Paragraph>
-            Since it's inception in 2008, the value of our uniquely centralized
-            blockchain <strong>Kobro$</strong> crypto currency has only gone up.
-            An investment made to the Kobro Dollar Exchange is an investment in
-            your future!
+            Since it&apos;s inception in 2008, the value of our uniquely
+            centralized blockchain <strong>Kobro$</strong> crypto currency has
+            only gone up. An investment made to the Kobro Dollar Exchange is an
+            investment in your future!
           </Paragraph>
 
           <Box
