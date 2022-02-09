@@ -14,9 +14,11 @@ const CertificationIndex = () => {
   return (
     <CertificationBase>
       <Head>
-        <title>Dr. Kobros Foundation</title>
-        <meta name="description" content="Dr. Kobros Foundation" />
-        <link rel="icon" href="/favicon.ico" />
+        <title>Certification Program - Dr. Kobros Foundation</title>
+        <meta
+          name="description"
+          content="An industry-wide standard and a measure of distinction that employers use to evaluate prospective employees."
+        />
       </Head>
 
       <Box

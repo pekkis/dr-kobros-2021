@@ -10,12 +10,13 @@ import RecommendationBase from "../../components/RecommendationBase";
 export default function Recommendation() {
   const router = useRouter();
 
+  const r = `Dr. Kobros recommends ${router.query.what}`;
+
   return (
     <RecommendationBase>
       <Head>
-        <title>Dr. Kobros Foundation</title>
-        <meta name="description" content="Dr. Kobros Foundation" />
-        <link rel="icon" href="/favicon.ico" />
+        <title>{r}</title>
+        <meta name="description" content={r} />
       </Head>
       <Box m={3}>Dr. Kobros recommends {router.query.what}</Box>
     </RecommendationBase>

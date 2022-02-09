@@ -3,6 +3,7 @@
 import Certification from "../components/CertificationCreator";
 import { useState } from "react";
 import { DateTime } from "luxon";
+import Head from "next/head";
 
 export type CertificationType = {
   date: string;
@@ -19,7 +20,22 @@ const CertificationCreate = () => {
   });
 
   return (
-    <Certification certificate={certificate} setCertificate={setCertificate} />
+    <>
+      <Head>
+        <title>
+          Get Certified! - Certification Program - Dr. Kobros Foundation
+        </title>
+        <meta
+          name="description"
+          content="An industry-wide standard and a measure of distinction that employers use to evaluate prospective employees."
+        />
+      </Head>
+
+      <Certification
+        certificate={certificate}
+        setCertificate={setCertificate}
+      />
+    </>
   );
 };
 

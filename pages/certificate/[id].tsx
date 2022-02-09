@@ -2,9 +2,9 @@
 
 import Certification from "../../components/Certification";
 import { FC } from "react";
-
 import { GetServerSideProps } from "next";
 import axios from "axios";
+import Head from "next/head";
 
 export const getServerSideProps: GetServerSideProps<Props> = async (
   context
@@ -23,6 +23,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (
 };
 
 export type CertificationType = {
+  id?: string;
   date: string;
   who: string;
   what: string;
@@ -33,7 +34,17 @@ type Props = {
 };
 
 const CertificationView: FC<Props> = ({ certificate }) => {
-  return <Certification certificate={certificate} />;
+  return (
+    <>
+      <Head>
+        <title>
+          Certificate {certificate.id} - Certification Program - Dr. Kobros
+          Foundation
+        </title>
+      </Head>
+      <Certification certificate={certificate} />
+    </>
+  );
 };
 
 export default CertificationView;

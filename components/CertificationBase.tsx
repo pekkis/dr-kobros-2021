@@ -33,12 +33,6 @@ const CertificationBase: FC = ({ children }) => {
         py: 4,
       }}
     >
-      <Head>
-        <title>Dr. Kobros Foundation</title>
-        <meta name="description" content="Dr. Kobros Foundation" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
       <CertBorder>{children}</CertBorder>
 
       <footer

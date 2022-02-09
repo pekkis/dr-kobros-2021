@@ -18,7 +18,6 @@ const RecommendationBase: FC = ({ children }) => {
       <Head>
         <title>Dr. Kobros Foundation</title>
         <meta name="description" content="Dr. Kobros Foundation" />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main>
