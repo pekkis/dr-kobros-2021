@@ -1,12 +1,13 @@
 /** @jsxImportSource theme-ui */
 
 import Link from "next/link";
-import { FC } from "react";
+import { FC, ReactNode } from "react";
 
 type Props = {
   title?: string;
   variant?: string;
   href: string;
+  children: ReactNode;
 };
 
 const InternalLink: FC<Props> = ({

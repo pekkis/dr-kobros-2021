@@ -4,7 +4,7 @@ import Head from "next/head";
 import Image from "next/image";
 import { Box, Container, Flex, Input } from "theme-ui";
 import logo from "../assets/dr-kobros-logo-large.png";
-import { FC, useState } from "react";
+import { FC, ReactNode, useState } from "react";
 import { useRouter } from "next/router";
 import KobroMenu from "../components/KobroMenu";
 import CertBorder from "../components/CertBorder";
@@ -24,7 +24,11 @@ div#inner {
 }
 */
 
-const CertificationBase: FC = ({ children }) => {
+type Props = {
+  children: ReactNode;
+};
+
+const CertificationBase: FC<Props> = ({ children }) => {
   return (
     <Container
       as="main"

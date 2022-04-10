@@ -1,5 +1,5 @@
 /** @jsxImportSource theme-ui */
-import { FC } from "react";
+import { FC, PropsWithChildren, ReactChildren, ReactNode } from "react";
 import kobroseal from "../assets/kobroseal-smaller.png";
 
 /*
@@ -17,7 +17,11 @@ div#inner {
 }
 */
 
-const CertBorder: FC = ({ children }) => {
+type Props = {
+  children: ReactNode;
+};
+
+const CertBorder: FC<Props> = ({ children }) => {
   return (
     <div
       sx={{

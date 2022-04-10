@@ -4,10 +4,14 @@ import Head from "next/head";
 import Image from "next/image";
 import { Box, Container, Flex, Input } from "theme-ui";
 import logo from "../assets/dr-kobros-logo-large.png";
-import { FC } from "react";
+import { FC, ReactNode } from "react";
 import KobroMenu from "../components/KobroMenu";
 
-const RecommendationBase: FC = ({ children }) => {
+type Props = {
+  children: ReactNode;
+};
+
+const RecommendationBase: FC<Props> = ({ children }) => {
   return (
     <Container
       sx={{

@@ -3,11 +3,12 @@
 import Image from "next/image";
 import logo from "../assets/dr-kobros-logo-large.png";
 import { Container, Box, Heading } from "theme-ui";
-import { FC } from "react";
+import { FC, ReactNode } from "react";
 import KobroMenu from "./KobroMenu";
 
 type Props = {
   title: string;
+  children: ReactNode;
 };
 
 const ContentBase: FC<Props> = ({ children, title }) => {
