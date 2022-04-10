@@ -4,8 +4,7 @@ import Head from "next/head";
 import Image from "next/image";
 import { Box, Container, Flex, Input } from "theme-ui";
 import logo from "../assets/dr-kobros-logo-large.png";
-import { FC, useState } from "react";
-import { useRouter } from "next/router";
+import { FC } from "react";
 import KobroMenu from "../components/KobroMenu";
 
 const RecommendationBase: FC = ({ children }) => {
@@ -34,7 +33,7 @@ const RecommendationBase: FC = ({ children }) => {
             }}
           >
             <Box mb={3}>
-              <Image src={logo} alt="Dr. Kobros Foundation" />
+              <Image src={logo} alt="Dr. Kobros Foundation" priority />
             </Box>
             <Box mt={2} sx={{}}>
               <Box

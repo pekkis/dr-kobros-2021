@@ -19,7 +19,7 @@ const ContentBase: FC<Props> = ({ children, title }) => {
           textAlign: "center",
         }}
       >
-        <Image alt="Dr. Kobros" src={logo} />
+        <Image alt="Dr. Kobros" src={logo} priority />
         <Heading as="h1" variant="headings.edmunds">
           {title}
         </Heading>

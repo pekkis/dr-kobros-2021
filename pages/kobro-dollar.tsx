@@ -37,14 +37,14 @@ const getData = (): ChartData<"line", number[] | string[], string> => {
   const [labels, data] = [
     range(0, numberOfDataPoints).map((x) => {
       const thisDate = now.minus({
-        months: numberOfDataPoints - x,
+        months: numberOfDataPoints - x - 1,
       });
 
       return thisDate.toLocaleString();
     }),
     range(0, numberOfDataPoints).map((x) => {
       const thisDate = now.minus({
-        months: numberOfDataPoints - x,
+        months: numberOfDataPoints - x - 1,
       });
 
       const diff = thisDate.diff(startDate, "days");
