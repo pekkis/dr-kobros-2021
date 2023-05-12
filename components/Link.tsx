@@ -17,18 +17,19 @@ const InternalLink: FC<Props> = ({
   ...rest
 }) => {
   return (
-    <Link href={href} passHref {...rest}>
-      <a
-        sx={{
-          variant,
-          "&.active": {
-            fontWeight: "bold",
-            textDecoration: "underline",
-          },
-        }}
-      >
-        {children}
-      </a>
+    <Link
+      href={href}
+      passHref
+      {...rest}
+      sx={{
+        variant,
+        "&.active": {
+          fontWeight: "bold",
+          textDecoration: "underline",
+        },
+      }}
+    >
+      {children}
     </Link>
   );
 };

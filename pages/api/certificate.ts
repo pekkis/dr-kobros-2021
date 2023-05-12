@@ -1,7 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
 import { CertificationType } from "../certificate-create";
-import { MongoClient } from "mongodb";
+import { MongoClient, ServerApiVersion } from "mongodb";
 import { v4 } from "uuid";
 import * as yup from "yup";
 // or as an es module:
@@ -13,13 +13,19 @@ let schema = yup.object().shape({
   who: yup.string().min(1).max(400).required(),
 });
 
-// Connection URL
-const client = new MongoClient(process.env.MONGO as string);
+const client = new MongoClient(process.env.MONGO as string, {
+  serverApi: {
+    version: ServerApiVersion.v1,
+    strict: true,
+    deprecationErrors: true,
+  },
+});
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<CertificationType>
 ) {
+  console.log("hip hei?");
   await client.connect();
 
   const isValid = await schema.validate(req.body);
