@@ -25,8 +25,8 @@ const InternalLink: FC<Props> = ({
         variant,
         "&.active": {
           fontWeight: "bold",
-          textDecoration: "underline",
-        },
+          textDecoration: "underline"
+        }
       }}
     >
       {children}

@@ -1,15 +1,12 @@
 /** @jsxImportSource theme-ui */
 
+import { DateTime } from "luxon";
 import { FC, useMemo } from "react";
-import CertificationCreate, {
-  CertificationType,
-} from "../pages/certificate-create";
-import CertificationBase from "../components/CertificationBase";
-import { Box, Heading, Flex } from "theme-ui";
+import { Box, Flex, Heading } from "theme-ui";
 import gaylordSignature from "../assets/signature-gaylord.png";
 import ragnarSignature from "../assets/signature-kobros.png";
-import Image from "next/image";
-import { DateTime } from "luxon";
+import CertificationBase from "../components/CertificationBase";
+import { CertificationType } from "../pages/certificate-create";
 
 type Props = {
   certificate: CertificationType;
@@ -28,14 +25,14 @@ const Certification: FC<Props> = ({ certificate }) => {
         sx={{
           textAlign: "center",
           my: 3,
-          mb: 4,
+          mb: 4
         }}
       >
         <Heading
           as="h1"
           variant="headings.edmunds"
           sx={{
-            fontSize: 40,
+            fontSize: 40
           }}
         >
           The Dr. Kobros Foundation
@@ -44,7 +41,7 @@ const Certification: FC<Props> = ({ certificate }) => {
           as="h2"
           sx={{
             fontWeight: 400,
-            fontSize: 3,
+            fontSize: 3
           }}
         >
           Dr. Kobros vei, Nordbyhagen, Norway
@@ -57,7 +54,7 @@ const Certification: FC<Props> = ({ certificate }) => {
             py: 3,
             textAlign: "center",
             fontSize: 3,
-            fontStyle: "italic",
+            fontStyle: "italic"
           }}
         >
           This is to certify that on{" "}
@@ -69,7 +66,7 @@ const Certification: FC<Props> = ({ certificate }) => {
             py: 3,
             textAlign: "center",
             fontSize: 3,
-            fontWeight: "bold",
+            fontWeight: "bold"
           }}
         >
           {certificate.who}
@@ -80,7 +77,7 @@ const Certification: FC<Props> = ({ certificate }) => {
             py: 3,
             textAlign: "center",
             fontSize: 3,
-            fontStyle: "italic",
+            fontStyle: "italic"
           }}
         >
           Successfully passed the Examination for the Certificate
@@ -91,7 +88,7 @@ const Certification: FC<Props> = ({ certificate }) => {
             my: 3,
             textAlign: "center",
             fontSize: 3,
-            fontWeight: "bold",
+            fontWeight: "bold"
           }}
         >
           {certificate.what}
@@ -102,13 +99,13 @@ const Certification: FC<Props> = ({ certificate }) => {
             width: "100%",
             alignItems: "flex-end",
             mt: 5,
-            mb: 3,
+            mb: 3
           }}
         >
           <Box
             sx={{
               width: "100%",
-              px: 3,
+              px: 3
             }}
           >
             <Box
@@ -116,12 +113,12 @@ const Certification: FC<Props> = ({ certificate }) => {
                 borderBottomStyle: "solid",
                 borderBottomColor: "#000",
                 borderBottomWidth: "1px",
-                pl: 2,
+                pl: 2
               }}
             >
               <img
                 sx={{
-                  marginBottom: "-13px",
+                  marginBottom: "-13px"
                 }}
                 alt="Ragnar Kobros, Chairman"
                 src={ragnarSignature.src}
@@ -132,7 +129,7 @@ const Certification: FC<Props> = ({ certificate }) => {
           <Box
             sx={{
               width: "100%",
-              px: 3,
+              px: 3
             }}
           >
             <Box
@@ -140,12 +137,12 @@ const Certification: FC<Props> = ({ certificate }) => {
                 borderBottomStyle: "solid",
                 borderBottomColor: "#000",
                 borderBottomWidth: "1px",
-                pl: 2,
+                pl: 2
               }}
             >
               <img
                 sx={{
-                  marginBottom: "-15px",
+                  marginBottom: "-15px"
                 }}
                 alt="Gaylord L. Lohiposki, interim CEO"
                 src={gaylordSignature.src}
@@ -161,7 +158,7 @@ const Certification: FC<Props> = ({ certificate }) => {
             mt: 4,
             mb: 2,
             px: 2,
-            textAlign: "center",
+            textAlign: "center"
           }}
         >
           <strong>Verification URL:</strong> {process.env.NEXT_PUBLIC_URL}

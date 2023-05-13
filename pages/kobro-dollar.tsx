@@ -15,7 +15,7 @@ import {
   LinearScale,
   Title,
   CategoryScale,
-  ChartData,
+  ChartData
 } from "chart.js";
 import { range } from "ramda";
 
@@ -37,14 +37,14 @@ const getData = (): ChartData<"line", number[] | string[], string> => {
   const [labels, data] = [
     range(0, numberOfDataPoints).map((x) => {
       const thisDate = now.minus({
-        months: numberOfDataPoints - x - 1,
+        months: numberOfDataPoints - x - 1
       });
 
       return thisDate.toLocaleString();
     }),
     range(0, numberOfDataPoints).map((x) => {
       const thisDate = now.minus({
-        months: numberOfDataPoints - x - 1,
+        months: numberOfDataPoints - x - 1
       });
 
       const diff = thisDate.diff(startDate, "days");
@@ -54,7 +54,7 @@ const getData = (): ChartData<"line", number[] | string[], string> => {
       console.log(diff.days, "days");
 
       return x;
-    }),
+    })
   ];
 
   const dataset = {
@@ -63,9 +63,9 @@ const getData = (): ChartData<"line", number[] | string[], string> => {
       {
         id: 1,
         label: "",
-        data,
-      },
-    ],
+        data
+      }
+    ]
   };
 
   return dataset;
@@ -105,7 +105,7 @@ const KobroDollarPage = () => {
             my={4}
             sx={{
               fontSize: 4,
-              textAlign: "center",
+              textAlign: "center"
             }}
           >
             <Button

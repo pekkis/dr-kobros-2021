@@ -1,5 +1,5 @@
 /** @jsxImportSource theme-ui */
-import { FC, PropsWithChildren, ReactChildren, ReactNode } from "react";
+import { FC, ReactNode } from "react";
 import kobroseal from "../assets/kobroseal-smaller.png";
 
 /*
@@ -32,7 +32,7 @@ const CertBorder: FC<Props> = ({ children }) => {
         backgroundPosition: "100% 100%",
         backgroundRepeat: "no-repeat",
         borderBottomRightRadius: "15px",
-        borderTopLeftRadius: "15px",
+        borderTopLeftRadius: "15px"
       }}
     >
       {children}

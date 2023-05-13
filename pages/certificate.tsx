@@ -1,16 +1,12 @@
 /** @jsxImportSource theme-ui */
 
 import Head from "next/head";
-import { Box, Container, Heading } from "theme-ui";
-import kobroseal from "../assets/kobroseal-smaller.png";
-import { useRouter } from "next/router";
+import { Box, Heading } from "theme-ui";
 import Link from "../components/Link";
 
 import CertificationBase from "../components/CertificationBase";
 
 const CertificationIndex = () => {
-  const router = useRouter();
-
   return (
     <CertificationBase>
       <Head>
@@ -23,12 +19,12 @@ const CertificationIndex = () => {
 
       <Box
         sx={{
-          p: 3,
+          p: 3
         }}
       >
         <Box
           sx={{
-            maxWidth: "500px",
+            maxWidth: "500px"
           }}
         >
           <Heading as="h1" variant="headings.edmunds">

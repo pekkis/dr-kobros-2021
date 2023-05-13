@@ -1,9 +1,9 @@
 /** @jsxImportSource theme-ui */
 
 import Image from "next/image";
-import logo from "../assets/dr-kobros-logo-large.png";
-import { Container, Box, Heading } from "theme-ui";
 import { FC, ReactNode } from "react";
+import { Box, Container, Heading } from "theme-ui";
+import logo from "../assets/dr-kobros-logo-large.png";
 import KobroMenu from "./KobroMenu";
 
 type Props = {
@@ -17,7 +17,7 @@ const ContentBase: FC<Props> = ({ children, title }) => {
       <Box
         mb={3}
         sx={{
-          textAlign: "center",
+          textAlign: "center"
         }}
       >
         <Image alt="Dr. Kobros" src={logo} priority />
@@ -31,7 +31,7 @@ const ContentBase: FC<Props> = ({ children, title }) => {
       <footer
         sx={{
           textAlign: "center",
-          mt: 4,
+          mt: 4
         }}
       >
         <KobroMenu />

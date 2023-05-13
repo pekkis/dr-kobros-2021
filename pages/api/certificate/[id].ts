@@ -1,13 +1,11 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import type { NextApiRequest, NextApiResponse } from "next";
-import { CertificationType } from "../../certificate-create";
 import { MongoClient } from "mongodb";
+import type { NextApiRequest, NextApiResponse } from "next";
 
 const client = new MongoClient(process.env.MONGO as string);
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<CertificationType | {}>
+  res: NextApiResponse
 ) {
   await client.connect();
 

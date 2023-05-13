@@ -1,10 +1,10 @@
 /** @jsxImportSource theme-ui */
 
-import Certification from "../../components/Certification";
-import { FC } from "react";
-import { GetServerSideProps } from "next";
 import axios from "axios";
+import { GetServerSideProps } from "next";
 import Head from "next/head";
+import { FC } from "react";
+import Certification from "../../components/Certification";
 
 export const getServerSideProps: GetServerSideProps<Props> = async (
   context
@@ -17,8 +17,8 @@ export const getServerSideProps: GetServerSideProps<Props> = async (
 
   return {
     props: {
-      certificate: ret.data,
-    },
+      certificate: ret.data
+    }
   };
 };
 

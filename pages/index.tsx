@@ -1,15 +1,10 @@
 /** @jsxImportSource theme-ui */
 
-import Head from "next/head";
-import Image from "next/image";
-import logo from "../assets/dr-kobros-logo-large.png";
-import { Box, Container, Flex, Input } from "theme-ui";
+import { Input } from "theme-ui";
 
-import { useState } from "react";
 import { useRouter } from "next/router";
-import KobroMenu from "../components/KobroMenu";
+import { useState } from "react";
 import RecommendationBase from "../components/RecommendationBase";
-import Link from "next/link";
 
 export default function Home() {
   const [recommends, setRecommends] = useState("");
@@ -30,7 +25,7 @@ export default function Home() {
         sx={{
           display: "inline-block",
           width: "400px",
-          fontFamily: "Edmunds",
+          fontFamily: "Edmunds"
         }}
         value={recommends}
         onChange={(e) => setRecommends(e.target.value)}

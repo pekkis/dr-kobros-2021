@@ -1,13 +1,13 @@
-import Link from "../components/Link";
 import { Box } from "theme-ui";
+import Link from "../components/Link";
 
 const KobroMenu = () => {
   return (
     <Box
       sx={{
         "@media print": {
-          display: "none",
-        },
+          display: "none"
+        }
       }}
     >
       Dr. Kobros® is a registered trademark of the{" "}

@@ -16,7 +16,7 @@ const CertificationCreate = () => {
   const [certificate, setCertificate] = useState({
     date: DateTime.local().toFormat("yyyy-LL-dd"),
     who: "",
-    what: "",
+    what: ""
   });
 
   return (

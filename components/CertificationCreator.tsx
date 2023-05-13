@@ -1,14 +1,14 @@
 /** @jsxImportSource theme-ui */
 
+import axios from "axios";
+import { DateTime } from "luxon";
+import { useRouter } from "next/router";
 import { FC, useCallback, useEffect, useMemo, useState } from "react";
-import { CertificationType } from "../pages/certificate-create";
-import CertificationBase from "../components/CertificationBase";
-import { Box, Heading, Flex, Input } from "theme-ui";
+import { Box, Flex, Heading, Input } from "theme-ui";
 import gaylordSignature from "../assets/signature-gaylord.png";
 import ragnarSignature from "../assets/signature-kobros.png";
-import axios from "axios";
-import { useRouter } from "next/router";
-import { DateTime } from "luxon";
+import CertificationBase from "../components/CertificationBase";
+import { CertificationType } from "../pages/certificate-create";
 import CertWaiting from "./CertWaiting";
 
 type Props = {
@@ -33,7 +33,7 @@ const CertificationCreator: FC<Props> = ({ certificate, setCertificate }) => {
     (who: string) => {
       setCertificate({
         ...certificate,
-        who,
+        who
       });
     },
     [certificate, setCertificate]
@@ -43,7 +43,7 @@ const CertificationCreator: FC<Props> = ({ certificate, setCertificate }) => {
     (what: string) => {
       setCertificate({
         ...certificate,
-        what,
+        what
       });
     },
     [certificate, setCertificate]
@@ -75,14 +75,14 @@ const CertificationCreator: FC<Props> = ({ certificate, setCertificate }) => {
         sx={{
           textAlign: "center",
           my: 3,
-          mb: 4,
+          mb: 4
         }}
       >
         <Heading
           as="h1"
           variant="headings.edmunds"
           sx={{
-            fontSize: 40,
+            fontSize: 40
           }}
         >
           The Dr. Kobros Foundation
@@ -91,7 +91,7 @@ const CertificationCreator: FC<Props> = ({ certificate, setCertificate }) => {
           as="h2"
           sx={{
             fontWeight: 400,
-            fontSize: 3,
+            fontSize: 3
           }}
         >
           Dr. Kobros vei, Nordbyhagen, Norway
@@ -104,7 +104,7 @@ const CertificationCreator: FC<Props> = ({ certificate, setCertificate }) => {
             py: 3,
             textAlign: "center",
             fontSize: 3,
-            fontStyle: "italic",
+            fontStyle: "italic"
           }}
         >
           This is to certify that on{" "}
@@ -116,13 +116,13 @@ const CertificationCreator: FC<Props> = ({ certificate, setCertificate }) => {
             py: 3,
             textAlign: "center",
             fontSize: 3,
-            fontWeight: "bold",
+            fontWeight: "bold"
           }}
         >
           <Input
             sx={{
               maxWidth: 600,
-              display: "inline-block",
+              display: "inline-block"
             }}
             disabled={ragnarSigned && gaylordSigned}
             placeholder="Your name here"
@@ -136,7 +136,7 @@ const CertificationCreator: FC<Props> = ({ certificate, setCertificate }) => {
             py: 3,
             textAlign: "center",
             fontSize: 3,
-            fontStyle: "italic",
+            fontStyle: "italic"
           }}
         >
           Successfully passed the Examination for the Certificate
@@ -147,14 +147,14 @@ const CertificationCreator: FC<Props> = ({ certificate, setCertificate }) => {
             my: 3,
             textAlign: "center",
             fontSize: 3,
-            fontWeight: "bold",
+            fontWeight: "bold"
           }}
         >
           <Input
             disabled={ragnarSigned && gaylordSigned}
             sx={{
               maxWidth: 600,
-              display: "inline-block",
+              display: "inline-block"
             }}
             placeholder="Certificate name here"
             value={certificate.what}
@@ -167,13 +167,13 @@ const CertificationCreator: FC<Props> = ({ certificate, setCertificate }) => {
             width: "100%",
             alignItems: "flex-end",
             mt: 5,
-            mb: 3,
+            mb: 3
           }}
         >
           <Box
             sx={{
               width: "100%",
-              px: 3,
+              px: 3
             }}
           >
             <Box
@@ -181,13 +181,13 @@ const CertificationCreator: FC<Props> = ({ certificate, setCertificate }) => {
                 borderBottomStyle: "solid",
                 borderBottomColor: "#000",
                 borderBottomWidth: "1px",
-                pl: 2,
+                pl: 2
               }}
             >
               {ragnarSigned && (
                 <img
                   sx={{
-                    marginBottom: "-13px",
+                    marginBottom: "-13px"
                   }}
                   alt="Ragnar Kobros, Chairman"
                   src={ragnarSignature.src}
@@ -197,7 +197,7 @@ const CertificationCreator: FC<Props> = ({ certificate, setCertificate }) => {
                 <button
                   disabled={!certificate.who || !certificate.what}
                   sx={{
-                    my: 2,
+                    my: 2
                   }}
                   onClick={() => setRagnarSigned(true)}
                 >
@@ -210,7 +210,7 @@ const CertificationCreator: FC<Props> = ({ certificate, setCertificate }) => {
           <Box
             sx={{
               width: "100%",
-              px: 3,
+              px: 3
             }}
           >
             <Box
@@ -218,13 +218,13 @@ const CertificationCreator: FC<Props> = ({ certificate, setCertificate }) => {
                 borderBottomStyle: "solid",
                 borderBottomColor: "#000",
                 borderBottomWidth: "1px",
-                pl: 2,
+                pl: 2
               }}
             >
               {gaylordSigned && (
                 <img
                   sx={{
-                    marginBottom: "-15px",
+                    marginBottom: "-15px"
                   }}
                   alt="Gaylord L. Lohiposki, interim CEO"
                   src={gaylordSignature.src}
@@ -234,7 +234,7 @@ const CertificationCreator: FC<Props> = ({ certificate, setCertificate }) => {
                 <button
                   disabled={!certificate.who || !certificate.what}
                   sx={{
-                    my: 2,
+                    my: 2
                   }}
                   onClick={() => setGaylordSigned(true)}
                 >

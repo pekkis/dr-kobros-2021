@@ -2,9 +2,9 @@
 
 import Head from "next/head";
 import Image from "next/image";
-import { Box, Container, Flex, Input } from "theme-ui";
-import logo from "../assets/dr-kobros-logo-large.png";
 import { FC, ReactNode } from "react";
+import { Box, Container, Flex } from "theme-ui";
+import logo from "../assets/dr-kobros-logo-large.png";
 import KobroMenu from "../components/KobroMenu";
 
 type Props = {
@@ -15,7 +15,7 @@ const RecommendationBase: FC<Props> = ({ children }) => {
   return (
     <Container
       sx={{
-        px: 2,
+        px: 2
       }}
     >
       <Head>
@@ -28,12 +28,12 @@ const RecommendationBase: FC<Props> = ({ children }) => {
           sx={{
             alignItems: "center",
             justifyContent: "center",
-            height: "100vh",
+            height: "100vh"
           }}
         >
           <Box
             sx={{
-              textAlign: "center",
+              textAlign: "center"
             }}
           >
             <Box mb={3}>
@@ -43,14 +43,14 @@ const RecommendationBase: FC<Props> = ({ children }) => {
               <Box
                 sx={{
                   fontFamily: "Edmunds",
-                  fontSize: 5,
+                  fontSize: 5
                 }}
               >
                 {children}
               </Box>
               <footer
                 sx={{
-                  mt: 4,
+                  mt: 4
                 }}
               >
                 <KobroMenu />

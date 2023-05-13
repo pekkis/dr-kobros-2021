@@ -1,10 +1,8 @@
 /** @jsxImportSource theme-ui */
 
 import Head from "next/head";
-import Image from "next/image";
-import { Box, Container } from "theme-ui";
-import logo from "../../assets/dr-kobros-logo-large.png";
 import { useRouter } from "next/router";
+import { Box } from "theme-ui";
 import RecommendationBase from "../../components/RecommendationBase";
 
 export default function Recommendation() {

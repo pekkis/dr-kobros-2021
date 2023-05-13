@@ -1,8 +1,8 @@
 /** @jsxImportSource theme-ui */
 
+import { createPortal } from "react-dom";
 import { Flex } from "theme-ui";
 import Spinner from "./Spinner";
-import { createPortal } from "react-dom";
 
 const CertWaiting = () => {
   if (typeof document === "undefined") {
@@ -25,7 +25,7 @@ const CertWaiting = () => {
         backgroundColor: "rgb(255, 255, 255, .8)",
         alignItems: "center",
         justifyContent: "center",
-        fontSize: 7,
+        fontSize: 7
       }}
     >
       <Spinner />

@@ -1,13 +1,9 @@
 /** @jsxImportSource theme-ui */
 
-import Head from "next/head";
-import Image from "next/image";
-import { Box, Container, Flex, Input } from "theme-ui";
-import logo from "../assets/dr-kobros-logo-large.png";
-import { FC, ReactNode, useState } from "react";
-import { useRouter } from "next/router";
-import KobroMenu from "../components/KobroMenu";
+import { FC, ReactNode } from "react";
+import { Container } from "theme-ui";
 import CertBorder from "../components/CertBorder";
+import KobroMenu from "../components/KobroMenu";
 
 /*
 
@@ -34,7 +30,7 @@ const CertificationBase: FC<Props> = ({ children }) => {
       as="main"
       sx={{
         px: 2,
-        py: 4,
+        py: 4
       }}
     >
       <CertBorder>{children}</CertBorder>
@@ -42,7 +38,7 @@ const CertificationBase: FC<Props> = ({ children }) => {
       <footer
         sx={{
           textAlign: "center",
-          mt: 4,
+          mt: 4
         }}
       >
         <KobroMenu />
