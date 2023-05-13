@@ -1,7 +1,5 @@
-import { MongoClient } from "mongodb";
 import type { NextApiRequest, NextApiResponse } from "next";
-
-const client = new MongoClient(process.env.MONGO as string);
+import { client } from "../../../services/mongo";
 
 export default async function handler(
   req: NextApiRequest,

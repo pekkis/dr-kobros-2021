@@ -7,25 +7,25 @@ const theme: Theme = {
   colors: {
     ...funk.colors,
     link: "#442b17",
-    certborder: "#e3d5ca",
+    certborder: "#e3d5ca"
   },
 
   sizes: {
-    container: "1000px",
+    container: "1000px"
   },
 
   headings: {
     edmunds: {
       fontFamily: "edmunds",
       letterSpacing: "normal",
-      fontWeight: 400,
-    },
+      fontWeight: 400
+    }
   },
 
   links: {
     cert: {
       color: "rgb(68, 43, 23)",
-      textDecoration: "underline",
+      textDecoration: "underline"
     },
 
     paginator: {
@@ -37,32 +37,32 @@ const theme: Theme = {
       marginX: 1,
       marginBottom: 2,
       display: "inline-block",
-      textDecoration: "none",
+      textDecoration: "none"
     },
 
     default: {
       color: "link",
-      textDecoration: "underline",
+      textDecoration: "underline"
     },
     menu: {
-      color: "white",
+      color: "white"
     },
     tag: {
       color: "white",
-      textDecoration: "none",
+      textDecoration: "none"
     },
     footer: {
-      color: "veryLight",
-    },
+      color: "veryLight"
+    }
   },
   styles: {
     ...funk.styles,
     root: {
       fontFamily: "body",
       fontWeight: "body",
-      fontSize: 2,
-    },
-  },
+      fontSize: 2
+    }
+  }
 } as Theme;
 
 export default theme;
