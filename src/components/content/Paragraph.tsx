@@ -1,4 +1,4 @@
-import { ComponentProps, FC, ReactNode } from "react";
+import { ComponentProps, FC } from "react";
 import * as styles from "./Paragraph.css";
 
 const Paragraph: FC<ComponentProps<"p">> = ({ children, ...props }) => {
