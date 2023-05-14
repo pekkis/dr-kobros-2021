@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
 import RecommendationBase from "../../components/RecommendationBase";
-import * as styles from "./[what].css";
+import * as styles from "../../[what].css";
 
 export default function Recommendation() {
   const router = useRouter();
