@@ -8,25 +8,9 @@ type Props = {
   children: ReactNode;
 };
 
-const InternalLink: FC<Props> = ({
-  variant = "links.default",
-  children,
-  href,
-  ...rest
-}) => {
+const InternalLink: FC<Props> = ({ children, href, ...rest }) => {
   return (
-    <Link
-      href={href}
-      passHref
-      {...rest}
-      sx={{
-        variant,
-        "&.active": {
-          fontWeight: "bold",
-          textDecoration: "underline"
-        }
-      }}
-    >
+    <Link href={href} passHref {...rest}>
       {children}
     </Link>
   );
