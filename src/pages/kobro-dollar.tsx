@@ -2,7 +2,7 @@ import Head from "next/head";
 import ContentBase from "../components/ContentBase";
 import { DateTime } from "luxon";
 import { Line } from "react-chartjs-2";
-import * as styles from "./kobro-dollar.css";
+import * as styles from "../kobro-dollar.css";
 
 import {
   Chart as ChartJS,

@@ -3,7 +3,7 @@ import Link from "../components/Link";
 
 import CertificationBase from "../components/CertificationBase";
 import MainHeading from "../components/content/MainHeading";
-import * as styles from "./certificate.css";
+import * as styles from "../certificate.css";
 
 const CertificationIndex = () => {
   return (
