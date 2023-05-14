@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import { useState } from "react";
 import RecommendationBase from "../components/RecommendationBase";
 import Input from "../components/recommendations/Input";
-import { what } from "./recommends/[what].css";
+import { what } from "../[what].css";
 
 export default function Home() {
   const [recommends, setRecommends] = useState("");
