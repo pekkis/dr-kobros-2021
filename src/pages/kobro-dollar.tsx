@@ -1,11 +1,8 @@
-/** @jsxImportSource theme-ui */
-
 import Head from "next/head";
-import { Box, Button, Paragraph } from "theme-ui";
 import ContentBase from "../components/ContentBase";
 import { DateTime } from "luxon";
-
 import { Line } from "react-chartjs-2";
+import * as styles from "./kobro-dollar.css";
 
 import {
   Chart as ChartJS,
@@ -18,6 +15,8 @@ import {
   ChartData
 } from "chart.js";
 import { range } from "ramda";
+import Paragraph from "../components/content/Paragraph";
+import Button from "@/components/Button";
 
 ChartJS.register(
   LineController,
@@ -69,19 +68,6 @@ const getData = (): ChartData<"line", number[] | string[], string> => {
   };
 
   return dataset;
-
-  /*
-  return {
-    labels: ["Jun", "Jul", "Aug"],
-    datasets: [
-      {
-        id: 1,
-        label: "xoox ox",
-        data: [5, 6, 7],
-      },
-    ],
-  };
-  */
 };
 
 const KobroDollarPage = () => {
@@ -93,39 +79,30 @@ const KobroDollarPage = () => {
         </title>
       </Head>
       <ContentBase title="Kobro$, the centralized crypto currency">
-        <Box my={4}>
-          <Paragraph>
-            Since it&apos;s inception in 2008, the value of our uniquely
-            centralized blockchain <strong>Kobro$</strong> crypto currency has
-            only gone up. An investment made to the Kobro Dollar Exchange is an
-            investment in your future!
-          </Paragraph>
+        <Paragraph>
+          Since it&apos;s inception in 2008, the value of our centralized
+          blockchain <strong>Kobro$</strong> crypto currency has{" "}
+          <em>only gone up</em>. An investment made to the Kobro Dollar Exchange
+          is an investment in your future!
+        </Paragraph>
 
-          <Box
-            my={4}
-            sx={{
-              fontSize: 4,
-              textAlign: "center"
+        <div className={styles.invest}>
+          <Button
+            onClick={() => {
+              alert(
+                "An error occurred in the server due to high demand. Please try again later."
+              );
             }}
           >
-            <Button
-              onClick={() => {
-                alert(
-                  "An error occurred in the server due to high demand. Please try again later."
-                );
-              }}
-              sx={{ cursor: "pointer" }}
-            >
-              Invest in Kobro$
-            </Button>
-          </Box>
-        </Box>
+            Invest in Kobro$
+          </Button>
+        </div>
 
-        <Box my={4}>
-          <h2>Kobro$ / US$ valuation chart, 120 months</h2>
+        <div className={styles.graph}>
+          <h2>Kobro$ / US$ valuation chart, last 120 months</h2>
 
           <Line datasetIdKey="id" data={getData()} options={{}} />
-        </Box>
+        </div>
       </ContentBase>
     </>
   );

@@ -1,10 +1,8 @@
-/** @jsxImportSource theme-ui */
-
-import { Input } from "theme-ui";
-
 import { useRouter } from "next/router";
 import { useState } from "react";
 import RecommendationBase from "../components/RecommendationBase";
+import Input from "../components/recommendations/Input";
+import { what } from "./recommends/[what].css";
 
 export default function Home() {
   const [recommends, setRecommends] = useState("");
@@ -20,22 +18,19 @@ export default function Home() {
 
   return (
     <RecommendationBase>
-      Dr. Kobros recommends{" "}
-      <Input
-        sx={{
-          display: "inline-block",
-          width: "400px",
-          fontFamily: "Edmunds"
-        }}
-        value={recommends}
-        onChange={(e) => setRecommends(e.target.value)}
-        onKeyPress={(e) => {
-          if (e.code === "Enter") {
-            submitRecommendation();
-          }
-        }}
-        onBlur={() => submitRecommendation()}
-      />
+      <div className={what}>
+        Dr. Kobros recommends{" "}
+        <Input
+          value={recommends}
+          onChange={(e) => setRecommends(e.target.value)}
+          onKeyUp={(e) => {
+            if (e.code === "Enter") {
+              submitRecommendation();
+            }
+          }}
+          onBlur={() => submitRecommendation()}
+        />
+      </div>
     </RecommendationBase>
   );
 }

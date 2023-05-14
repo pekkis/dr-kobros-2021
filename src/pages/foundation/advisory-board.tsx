@@ -1,6 +1,7 @@
-import { Heading, Paragraph } from "theme-ui";
 import ContentBase from "../../components/ContentBase";
 import Head from "next/head";
+import SubHeading from "../../components/content/SubHeading";
+import Paragraph from "@/components/content/Paragraph";
 
 const FoundationAdvisoryBoardPage = () => {
   return (
@@ -9,9 +10,7 @@ const FoundationAdvisoryBoardPage = () => {
         <title>Advisory Board - Dr. Kobros Foundation</title>
       </Head>
       <ContentBase title="Advisory Board of The Dr. Kobros Foundation">
-        <Heading as="h2" mt={4} mb={3}>
-          Gaylord L. Lohiposki
-        </Heading>
+        <SubHeading>Gaylord L. Lohiposki</SubHeading>
         <Paragraph>
           Gaylord L. Lohiposki is the interim Chief Executive Officer of the Dr.
           Kobros Corporation. He&apos;s in charge of the day-to-day operations
@@ -20,18 +19,14 @@ const FoundationAdvisoryBoardPage = () => {
           Board.
         </Paragraph>
 
-        <Heading as="h2" mt={4} mb={3}>
-          Ragnar Kobros III
-        </Heading>
+        <SubHeading>Ragnar Kobros III</SubHeading>
         <Paragraph>
           Ragnar Kobros III, grandson of the founder, is the honorary chairman
           of the board of the Foundation. Advancement of snake oil has been his
           whole life, but he is now mostly enjoying a well-earned retirement
           from the Foundation&apos;s daily operations.
         </Paragraph>
-        <Heading as="h2" mt={4} mb={3}>
-          Dr. Octavius Vesala
-        </Heading>
+        <SubHeading>Dr. Octavius Vesala</SubHeading>
         <Paragraph>
           Dr. Octavius Vesala is in charge of the Research & Development
           division of the Foundation. He is a Medical Doctor (MD) specialized in
@@ -40,9 +35,7 @@ const FoundationAdvisoryBoardPage = () => {
           patented wonder medications. He truly is the torchbearer of the spirit
           of Ragnar Kobros!
         </Paragraph>
-        <Heading as="h2" mt={4} mb={3}>
-          Abu Pekkis al-Myyrmäki
-        </Heading>
+        <SubHeading>Abu Pekkis al-Myyrmäki</SubHeading>
         <Paragraph>
           Abu Pekkis al-Myyrmäki is the founder of Red Jihad, a huotilistic
           terrorist organization plotting to overthrown the government.

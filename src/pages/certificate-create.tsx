@@ -1,5 +1,3 @@
-/** @jsxImportSource theme-ui */
-
 import Certification from "../components/CertificationCreator";
 import { useState } from "react";
 import { DateTime } from "luxon";

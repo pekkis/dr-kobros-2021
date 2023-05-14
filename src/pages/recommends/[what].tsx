@@ -1,9 +1,7 @@
-/** @jsxImportSource theme-ui */
-
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { Box } from "theme-ui";
 import RecommendationBase from "../../components/RecommendationBase";
+import * as styles from "./[what].css";
 
 export default function Recommendation() {
   const router = useRouter();
@@ -16,7 +14,9 @@ export default function Recommendation() {
         <title>{r}</title>
         <meta name="description" content={r} />
       </Head>
-      <Box m={3}>Dr. Kobros recommends {router.query.what}</Box>
+      <div className={styles.what}>
+        Dr. Kobros recommends {router.query.what}
+      </div>
     </RecommendationBase>
   );
 }

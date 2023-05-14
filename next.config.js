@@ -17,10 +17,12 @@ const nextConfig = {
   },
   eslint: {
     ignoreDuringBuilds: false
-  },
-  experimental: {
-    appDir: true
   }
+  /*
+  experimental: {
+    appDir: false
+  }
+  */
 };
 
 module.exports = compose(withBundleAnalyzer, withVanillaExtract)(nextConfig);

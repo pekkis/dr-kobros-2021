@@ -1,15 +1,18 @@
-/** @jsxImportSource theme-ui */
-
 import axios from "axios";
 import { DateTime } from "luxon";
 import { useRouter } from "next/router";
 import { FC, useCallback, useEffect, useMemo, useState } from "react";
-import { Box, Flex, Heading, Input } from "theme-ui";
-import gaylordSignature from "../assets/signature-gaylord.png";
-import ragnarSignature from "../assets/signature-kobros.png";
+import Input from "./certification/Input";
 import CertificationBase from "../components/CertificationBase";
 import { CertificationType } from "../pages/certificate-create";
 import CertWaiting from "./CertWaiting";
+import RagnarSignature from "./certification/RagnarSignature";
+import SignaturePlaceholder from "./certification/SignaturePlaceholder";
+import GaylordSignature from "./certification/GaylordSignature";
+import Header from "./certification/Header";
+import Padder from "./certification/Padder";
+import ThisIsToCertify from "./certification/ThisIsToCertify";
+import Signatures from "./certification/Signatures";
 
 type Props = {
   certificate: CertificationType;
@@ -25,7 +28,10 @@ const CertificationCreator: FC<Props> = ({ certificate, setCertificate }) => {
   const router = useRouter();
 
   const d = useMemo(
-    () => DateTime.fromISO(certificate.date),
+    () =>
+      DateTime.fromISO(certificate.date)
+        .setLocale("en")
+        .toLocaleString(DateTime.DATE_MED),
     [certificate.date]
   );
 
@@ -70,182 +76,53 @@ const CertificationCreator: FC<Props> = ({ certificate, setCertificate }) => {
   return (
     <CertificationBase>
       {submitting && <CertWaiting />}
-      <Box
-        as="header"
-        sx={{
-          textAlign: "center",
-          my: 3,
-          mb: 4
-        }}
-      >
-        <Heading
-          as="h1"
-          variant="headings.edmunds"
-          sx={{
-            fontSize: 40
-          }}
-        >
-          The Dr. Kobros Foundation
-        </Heading>
-        <Heading
-          as="h2"
-          sx={{
-            fontWeight: 400,
-            fontSize: 3
-          }}
-        >
-          Dr. Kobros vei, Nordbyhagen, Norway
-        </Heading>
-      </Box>
+      <Header />
+      <Padder>
+        <ThisIsToCertify
+          when={d}
+          who={
+            <Input
+              disabled={ragnarSigned && gaylordSigned}
+              placeholder="Your name here"
+              value={certificate.who}
+              onChange={(e) => setWho(e.target.value)}
+            />
+          }
+          what={
+            <Input
+              disabled={ragnarSigned && gaylordSigned}
+              placeholder="Certificate name here"
+              value={certificate.what}
+              onChange={(e) => setWhat(e.target.value)}
+            />
+          }
+        />
 
-      <Box my={3} px={3}>
-        <Box
-          sx={{
-            py: 3,
-            textAlign: "center",
-            fontSize: 3,
-            fontStyle: "italic"
-          }}
-        >
-          This is to certify that on{" "}
-          {d.setLocale("en").toLocaleString(DateTime.DATE_MED)}
-        </Box>
-        <Box
-          my={3}
-          sx={{
-            py: 3,
-            textAlign: "center",
-            fontSize: 3,
-            fontWeight: "bold"
-          }}
-        >
-          <Input
-            sx={{
-              maxWidth: 600,
-              display: "inline-block"
-            }}
-            disabled={ragnarSigned && gaylordSigned}
-            placeholder="Your name here"
-            value={certificate.who}
-            onChange={(e) => setWho(e.target.value)}
-          />
-        </Box>
-        <Box
-          my={3}
-          sx={{
-            py: 3,
-            textAlign: "center",
-            fontSize: 3,
-            fontStyle: "italic"
-          }}
-        >
-          Successfully passed the Examination for the Certificate
-        </Box>
-        <Box
-          my={3}
-          sx={{
-            my: 3,
-            textAlign: "center",
-            fontSize: 3,
-            fontWeight: "bold"
-          }}
-        >
-          <Input
-            disabled={ragnarSigned && gaylordSigned}
-            sx={{
-              maxWidth: 600,
-              display: "inline-block"
-            }}
-            placeholder="Certificate name here"
-            value={certificate.what}
-            onChange={(e) => setWhat(e.target.value)}
-          />
-        </Box>
-
-        <Flex
-          sx={{
-            width: "100%",
-            alignItems: "flex-end",
-            mt: 5,
-            mb: 3
-          }}
-        >
-          <Box
-            sx={{
-              width: "100%",
-              px: 3
-            }}
-          >
-            <Box
-              sx={{
-                borderBottomStyle: "solid",
-                borderBottomColor: "#000",
-                borderBottomWidth: "1px",
-                pl: 2
+        <Signatures>
+          {ragnarSigned ? (
+            <RagnarSignature />
+          ) : (
+            <SignaturePlaceholder
+              isSignable={Boolean(certificate.what && certificate.who)}
+              signee="Ragnar Kobros, Chairman"
+              onSign={() => {
+                setRagnarSigned(true);
               }}
-            >
-              {ragnarSigned && (
-                <img
-                  sx={{
-                    marginBottom: "-13px"
-                  }}
-                  alt="Ragnar Kobros, Chairman"
-                  src={ragnarSignature.src}
-                />
-              )}
-              {!ragnarSigned && (
-                <button
-                  disabled={!certificate.who || !certificate.what}
-                  sx={{
-                    my: 2
-                  }}
-                  onClick={() => setRagnarSigned(true)}
-                >
-                  sign
-                </button>
-              )}
-            </Box>
-            Ragnar Kobros, Chairman
-          </Box>
-          <Box
-            sx={{
-              width: "100%",
-              px: 3
-            }}
-          >
-            <Box
-              sx={{
-                borderBottomStyle: "solid",
-                borderBottomColor: "#000",
-                borderBottomWidth: "1px",
-                pl: 2
+            ></SignaturePlaceholder>
+          )}
+          {gaylordSigned ? (
+            <GaylordSignature />
+          ) : (
+            <SignaturePlaceholder
+              isSignable={Boolean(certificate.what && certificate.who)}
+              signee="Gaylord L. Lohiposki, interim CEO"
+              onSign={() => {
+                setGaylordSigned(true);
               }}
-            >
-              {gaylordSigned && (
-                <img
-                  sx={{
-                    marginBottom: "-15px"
-                  }}
-                  alt="Gaylord L. Lohiposki, interim CEO"
-                  src={gaylordSignature.src}
-                />
-              )}
-              {!gaylordSigned && (
-                <button
-                  disabled={!certificate.who || !certificate.what}
-                  sx={{
-                    my: 2
-                  }}
-                  onClick={() => setGaylordSigned(true)}
-                >
-                  sign
-                </button>
-              )}
-            </Box>
-            Gaylord L. Lohiposki, interim CEO
-          </Box>
-        </Flex>
-      </Box>
+            ></SignaturePlaceholder>
+          )}
+        </Signatures>
+      </Padder>
     </CertificationBase>
   );
 };

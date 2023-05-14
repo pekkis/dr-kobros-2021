@@ -1,32 +1,22 @@
-import { Box } from "theme-ui";
 import Link from "../components/Link";
+import * as styles from "./KobroMenu.css";
 
 const KobroMenu = () => {
   return (
-    <Box
-      sx={{
-        "@media print": {
-          display: "none"
-        }
-      }}
-    >
+    <div className={styles.kobroMenu}>
       Dr. Kobros® is a registered trademark of the{" "}
       <Link href="/foundation">Dr. Kobros Foundation</Link>. All rights
       reserved.
-      <div>
+      <nav>
         <Link href="/">Dr. Kobros recommends</Link>
         {" | "}
         <Link href="/certificate">Dr. Kobros Certifications</Link>
         {" | "}
         <Link href="/kobro-dollar">Kobro$</Link>
-
-        {/*
-        {" | "}<Link href="/dashboard">Dr. Kobros Dashboard</Link>
         {" | "}
-        <Link href="/corporate">Investors &amp; Press</Link>
-  */}
-      </div>
-    </Box>
+        <Link href="/kobro-ai">Kobro AI</Link>
+      </nav>
+    </div>
   );
 };
 

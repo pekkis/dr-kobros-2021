@@ -1,6 +1,5 @@
 import { Head, Html, Main, NextScript } from "next/document";
 import { StrictMode } from "react";
-import { InitializeColorMode } from "theme-ui";
 
 const DrKobrosDocument = () => {
   return (
@@ -13,7 +12,6 @@ const DrKobrosDocument = () => {
           />
         </Head>
         <body>
-          <InitializeColorMode />
           <Main />
           <NextScript />
           <div id="modal"></div>

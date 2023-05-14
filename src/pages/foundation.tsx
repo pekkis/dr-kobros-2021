@@ -1,6 +1,6 @@
 import Head from "next/head";
-import { Heading } from "theme-ui";
 import ContentBase from "../components/ContentBase";
+import SubHeading from "../components/content/SubHeading";
 
 const FoundationPage = () => {
   return (
@@ -8,8 +8,8 @@ const FoundationPage = () => {
       <Head>
         <title>History of the Foundation - Dr. Kobros Foundation</title>
       </Head>
-      <ContentBase title="The Dr. Kobros Foundation">
-        <Heading as="h2">Adventuring in America</Heading>
+      <ContentBase title="History of The Dr. Kobros Foundation">
+        <SubHeading>Adventuring in America</SubHeading>
 
         <p>
           Born in 1867, Ragnar Kobros spent his early years in the provincial
@@ -33,7 +33,7 @@ const FoundationPage = () => {
           the harsh rule of the Swedish colonial authority.
         </p>
 
-        <Heading as="h2">The people&apos;s hero</Heading>
+        <SubHeading>The people&apos;s hero</SubHeading>
 
         <p>
           Ragnar Kobros funded and organized a resistance movement. His methods
@@ -61,7 +61,7 @@ const FoundationPage = () => {
           was the medicine that gave hope to millions.
         </p>
 
-        <Heading as="h2">An economic empire</Heading>
+        <SubHeading>An economic empire</SubHeading>
 
         <p>
           During the interwar years, the family business empire flourished. Many
@@ -86,7 +86,7 @@ const FoundationPage = () => {
           opportunity.
         </p>
 
-        <Heading as="h2">Fighting the Nazis</Heading>
+        <SubHeading>Fighting the Nazis</SubHeading>
 
         <p>
           The national socialists, however, chose to betray the Kobros family.
@@ -122,7 +122,7 @@ const FoundationPage = () => {
           city. The documents were safe.
         </p>
 
-        <Heading as="h2">Founding the Foundation</Heading>
+        <SubHeading>Founding the Foundation</SubHeading>
 
         <p>
           The second world war struck a devastating blow on Dr. Kobros. Most of
@@ -143,7 +143,7 @@ const FoundationPage = () => {
           taxation.
         </p>
 
-        <Heading as="h2">Today and in the future</Heading>
+        <SubHeading>Today and in the future</SubHeading>
 
         <p>
           Founded in remembrance of his grandfather, the greatest snake oil

@@ -1,5 +1,3 @@
-/** @jsxImportSource theme-ui */
-
 import axios from "axios";
 import { GetServerSideProps } from "next";
 import Head from "next/head";
@@ -9,8 +7,6 @@ import Certification from "../../components/Certification";
 export const getServerSideProps: GetServerSideProps<Props> = async (
   context
 ) => {
-  context.query.id;
-
   const ret = await axios.get<CertificationType>(
     `${process.env.NEXT_PUBLIC_API}/api/certificate/${context.query.id}`
   );
