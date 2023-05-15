@@ -25,3 +25,7 @@ export const childrenContainer = style({
   fontFamily: theme.fontFamily.kobros,
   fontSize: theme.fontSize.grand
 });
+
+export const what = style({
+  padding: theme.spacing.small
+});
