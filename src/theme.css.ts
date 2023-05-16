@@ -25,7 +25,7 @@ export const theme = createGlobalTheme(":root", {
     small: "0.5rem",
     medium: "1rem",
     grand: "2rem",
-    humongous: "3rem"
+    humongous: "4rem"
   },
 
   size: {
@@ -34,7 +34,8 @@ export const theme = createGlobalTheme(":root", {
 
   borderRadius: {
     none: "0",
-    small: "5px"
+    small: "5px",
+    medium: "10px"
   },
 
   color: {
@@ -42,6 +43,7 @@ export const theme = createGlobalTheme(":root", {
     certborder: "#e3d5ca",
     action: "#ff7700",
     white: "rgb(255 255 255)",
-    grey: "rgb(33 33 33)"
+    grey: "rgb(33 33 33)",
+    black: "rgb(0 0 0)"
   }
 });

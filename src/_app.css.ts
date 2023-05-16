@@ -5,7 +5,8 @@ globalStyle("html", {
 });
 
 globalStyle("body", {
-  fontSize: "18px"
+  fontSize: "18px",
+  lineHeight: "1.8"
 });
 
 globalStyle("html, body", {

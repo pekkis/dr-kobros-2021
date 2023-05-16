@@ -6,9 +6,9 @@ const FoundationPage = () => {
   return (
     <>
       <Head>
-        <title>History of the Foundation - Dr. Kobros Foundation</title>
+        <title>About The Foundation - Dr. Kobros Foundation</title>
       </Head>
-      <ContentBase title="History of The Dr. Kobros Foundation">
+      <ContentBase title="About The Dr. Kobros Foundation">
         <SubHeading>Adventuring in America</SubHeading>
 
         <p>
