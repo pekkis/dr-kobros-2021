@@ -14,7 +14,9 @@ const KobroMenu: FC<Props> = ({ nav = true }) => {
       reserved.
       {nav && (
         <nav>
-          <Link href="/">Dr. Kobros recommends</Link>
+          <Link href="/">Home</Link>
+          {" | "}
+          <Link href="/recommends">Dr. Kobros recommends</Link>
           {" | "}
           <Link href="/certificate">Dr. Kobros Certifications</Link>
           {" | "}
