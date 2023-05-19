@@ -1,8 +1,6 @@
 import { DateTime } from "luxon";
 import { FC, useMemo } from "react";
-
 import CertificationBase from "../components/CertificationBase";
-import { CertificationType } from "../pages/certificate-create";
 import GaylordSignature from "./certification/GaylordSignature";
 import RagnarSignature from "./certification/RagnarSignature";
 import Header from "./certification/Header";
@@ -10,6 +8,7 @@ import ThisIsToCertify from "./certification/ThisIsToCertify";
 import Padder from "./certification/Padder";
 import Signatures from "./certification/Signatures";
 import Verification from "./certification/Verification";
+import { CertificationType } from "@/app/certificate-create/page";
 
 type Props = {
   certificate: CertificationType;

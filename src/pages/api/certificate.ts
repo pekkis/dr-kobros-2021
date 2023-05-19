@@ -1,8 +1,9 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { v4 } from "uuid";
 import * as yup from "yup";
-import { CertificationType } from "../certificate-create";
+
 import { client } from "../../services/mongo";
+import { CertificationType } from "@/app/certificate-create/page";
 
 const schema = yup.object().shape({
   date: yup.string().min(1).max(20).required(),

@@ -1,21 +1,19 @@
-import Head from "next/head";
-import Link from "../components/Link";
+import Link from "../../components/Link";
 
-import CertificationBase from "../components/CertificationBase";
-import MainHeading from "../components/content/MainHeading";
-import * as styles from "../certificate.css";
+import CertificationBase from "../../components/CertificationBase";
+import MainHeading from "../../components/content/MainHeading";
+import * as styles from "../../certificate.css";
+import { Metadata } from "next";
 
-const CertificationIndex = () => {
+export const metadata: Metadata = {
+  title: "Certification Program - Dr. Kobros Foundation",
+  description:
+    "An industry-wide standard and a measure of distinction that employers use to evaluate prospective employees."
+};
+
+const CertificationIndexPage = () => {
   return (
     <CertificationBase>
-      <Head>
-        <title>Certification Program - Dr. Kobros Foundation</title>
-        <meta
-          name="description"
-          content="An industry-wide standard and a measure of distinction that employers use to evaluate prospective employees."
-        />
-      </Head>
-
       <div className={styles.container}>
         <div>
           <MainHeading>Dr. Kobros certification program</MainHeading>
@@ -65,4 +63,4 @@ const CertificationIndex = () => {
   );
 };
 
-export default CertificationIndex;
+export default CertificationIndexPage;

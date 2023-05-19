@@ -1,10 +1,10 @@
 import axios from "axios";
 import { DateTime } from "luxon";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { FC, useCallback, useEffect, useMemo, useState } from "react";
 import Input from "./certification/Input";
 import CertificationBase from "../components/CertificationBase";
-import { CertificationType } from "../pages/certificate-create";
+
 import CertWaiting from "./CertWaiting";
 import RagnarSignature from "./certification/RagnarSignature";
 import SignaturePlaceholder from "./certification/SignaturePlaceholder";
@@ -13,6 +13,7 @@ import Header from "./certification/Header";
 import Padder from "./certification/Padder";
 import ThisIsToCertify from "./certification/ThisIsToCertify";
 import Signatures from "./certification/Signatures";
+import { CertificationType } from "@/app/certificate-create/page";
 
 type Props = {
   certificate: CertificationType;
