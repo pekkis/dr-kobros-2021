@@ -1,9 +1,8 @@
-import type { NextApiRequest, NextApiResponse } from "next";
 import { v4 } from "uuid";
 import * as yup from "yup";
-
-import { client } from "../../services/mongo";
+import { client } from "@/services/mongo";
 import { CertificationType } from "@/app/certificate-create/page";
+import { NextResponse, NextRequest } from "next/server";
 
 const schema = yup.object().shape({
   date: yup.string().min(1).max(20).required(),
@@ -11,13 +10,9 @@ const schema = yup.object().shape({
   who: yup.string().min(1).max(400).required()
 });
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse<CertificationType>
-) {
-  await client.connect();
-
-  const isValid = await schema.validate(req.body);
+export async function POST(request: NextRequest) {
+  const body = await request.json();
+  const isValid = await schema.validate(body);
 
   if (!isValid) {
     throw new Error("Invalid certificate data");
@@ -28,12 +23,11 @@ export default async function handler(
 
   const certificate: CertificationType = {
     id: v4(),
-    date: req.body.date,
-    who: req.body.who,
-    what: req.body.what
+    date: body.date,
+    who: body.who,
+    what: body.what
   };
-
   await collection.insertOne(certificate);
 
-  res.status(200).json(certificate);
+  return NextResponse.json(certificate);
 }

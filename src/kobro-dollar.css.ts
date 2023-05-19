@@ -9,7 +9,9 @@ export const invest = style({
 
 export const graph = style({
   marginBlock: theme.spacing.grand,
-  border: "1px dotted rgb(33 33 33)",
+  border: "1px solid rgb(33 33 33)",
+  borderRadius: theme.borderRadius.medium,
   width: "100%",
-  position: "relative"
+  position: "relative",
+  padding: theme.spacing.medium
 });

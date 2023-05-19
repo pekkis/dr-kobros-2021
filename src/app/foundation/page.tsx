@@ -1,13 +1,14 @@
-import Head from "next/head";
-import ContentBase from "../components/ContentBase";
-import SubHeading from "../components/content/SubHeading";
+import ContentBase from "@/components/ContentBase";
+import SubHeading from "@/components/content/SubHeading";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About The Dr. Kobros Foundation"
+};
 
 const FoundationPage = () => {
   return (
     <>
-      <Head>
-        <title>About The Foundation - Dr. Kobros Foundation</title>
-      </Head>
       <ContentBase title="About The Dr. Kobros Foundation">
         <SubHeading>Adventuring in America</SubHeading>
 

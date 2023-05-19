@@ -1,14 +1,15 @@
-import ContentBase from "../../components/ContentBase";
-import Head from "next/head";
-import SubHeading from "../../components/content/SubHeading";
+import ContentBase from "@/components/ContentBase";
+import SubHeading from "@/components/content/SubHeading";
 import Paragraph from "@/components/content/Paragraph";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Advisory Board of The Dr. Kobros Foundation"
+};
 
 const FoundationAdvisoryBoardPage = () => {
   return (
     <>
-      <Head>
-        <title>Advisory Board - Dr. Kobros Foundation</title>
-      </Head>
       <ContentBase title="Advisory Board of The Dr. Kobros Foundation">
         <SubHeading>Gaylord L. Lohiposki</SubHeading>
         <Paragraph>
