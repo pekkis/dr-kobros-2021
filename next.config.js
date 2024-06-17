@@ -17,9 +17,6 @@ const nextConfig = {
   },
   eslint: {
     ignoreDuringBuilds: false
-  },
-  experimental: {
-    appDir: true
   }
 };
 

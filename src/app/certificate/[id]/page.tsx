@@ -1,9 +1,9 @@
-import axios from "axios";
-import { cache } from "react";
 import { CertificationType } from "@/app/certificate-create/page";
 import Certification from "@/components/Certification";
+import axios from "axios";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { cache } from "react";
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   try {
