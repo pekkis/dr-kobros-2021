@@ -2,19 +2,21 @@ import RecommendationBase from "@/components/RecommendationBase";
 import { Metadata } from "next";
 
 type Props = {
-  params: {
+  params: Promise<{
     what: string;
-  };
+  }>;
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { what } = await params;
+
   return {
-    title: `Dr. Kobros recommends ${decodeURIComponent(params.what)}`
+    title: `Dr. Kobros recommends ${decodeURIComponent(what)}`
   };
 }
 
-export default function Recommendation({ params }: Props) {
-  return (
-    <RecommendationBase>{decodeURIComponent(params.what)}</RecommendationBase>
-  );
+export default async function Recommendation({ params }: Props) {
+  const { what } = await params;
+
+  return <RecommendationBase>{decodeURIComponent(what)}</RecommendationBase>;
 }

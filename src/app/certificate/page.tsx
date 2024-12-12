@@ -27,7 +27,11 @@ const CertificationIndexPage = () => {
             </p>
             <p>
               Sponsored by the Dr. Kobros Foundation and developed according to{" "}
-              <a target="_blank" href="https://www.standards.no">
+              <a
+                rel="noreferrer"
+                target="_blank"
+                href="https://www.standards.no"
+              >
                 Standards Norway
               </a>{" "}
               (NORSOK) standards, The Dr. Kobros certification programs are
