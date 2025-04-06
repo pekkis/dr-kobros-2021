@@ -15,9 +15,12 @@ services:
   mongo:
     image: mongo
     restart: always
+    volumes:
+      - mongodata:/data/db
     networks:
       - kobros
-
 networks:
   kobros:
     driver: bridge
+volumes:
+  mongodata:
