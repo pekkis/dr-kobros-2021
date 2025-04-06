@@ -1,0 +1,23 @@
+services:
+  next:
+    environment:
+      MONGO: mongodb://mongo/kobros
+      NEXT_PUBLIC_URL: http://www.dr-kobros.com
+      NEXT_PUBLIC_API: http://www.dr-kobros.com
+    build:
+      dockerfile: docker/next/Dockerfile
+    depends_on:
+      - mongo
+    networks:
+      - kobros
+    ports:
+      - 3000:3000
+  mongo:
+    image: mongo
+    restart: always
+    networks:
+      - kobros
+
+networks:
+  kobros:
+    driver: bridge
