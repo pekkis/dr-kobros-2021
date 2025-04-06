@@ -41,7 +41,7 @@ export const theme = createGlobalTheme(":root", {
   color: {
     link: "#442b17",
     certborder: "#e3d5ca",
-    action: "#ff7700",
+    action: "color(display-p3 1 .88 0)",
     white: "rgb(255 255 255)",
     grey: "rgb(33 33 33)",
     black: "rgb(0 0 0)"
