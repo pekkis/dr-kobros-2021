@@ -1,7 +1,7 @@
 import { createGlobalTheme, fontFace } from "@vanilla-extract/css";
 
 const edmunds = fontFace({
-  fontWeight: "normal",
+  fontWeight: 400,
   fontStyle: "normal",
   src: "url('/edmunds-webfont.woff')"
 });

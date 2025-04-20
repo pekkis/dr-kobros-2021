@@ -11,7 +11,7 @@ export const namer = style({
   marginBlock: theme.spacing.medium,
   paddingBlock: theme.spacing.medium,
   textAlign: "center",
-  fontWeight: "bold"
+  fontWeight: 700
 });
 
 export const when = style({});

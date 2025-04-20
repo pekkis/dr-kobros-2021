@@ -1,5 +1,7 @@
 services:
   next:
+    profiles:
+      - production
     environment:
       MONGO: mongodb://mongo/kobros
       NEXT_PUBLIC_URL: http://www.dr-kobros.com
@@ -13,6 +15,9 @@ services:
     ports:
       - 3000:3000
   mongo:
+    profiles:
+      - production
+      - development
     image: mongo
     restart: always
     volumes:
