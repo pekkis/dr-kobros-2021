@@ -1,7 +1,9 @@
+import "dotenv/config";
+
 import { createDailyKobroscope } from "@/workflow/steps/createDailyKobroscope";
 
 export async function createDailyKobroscopes(date: string) {
-  "use workflow";
+  console.log("GENERATING...");
 
   await createDailyKobroscope("aquarius", date);
   await createDailyKobroscope("aries", date);
@@ -16,5 +18,6 @@ export async function createDailyKobroscopes(date: string) {
   await createDailyKobroscope("taurus", date);
   await createDailyKobroscope("virgo", date);
 
+  console.log("GENERATED...");
   return true;
 }

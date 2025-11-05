@@ -60,8 +60,6 @@ export const findKobroscope = async (
     zodiac
   });
 
-  console.log("RET", ret);
-
   return ret;
 };
 

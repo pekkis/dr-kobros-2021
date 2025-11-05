@@ -1,5 +1,10 @@
-import { generateKobroscope } from "@/services/kobroscope";
+import { createDailyKobroscopes } from "@/workflow/dailyKobroscopes";
+import { DateTime } from "luxon";
 
-const ks = await generateKobroscope("Aries");
+const now = DateTime.now();
 
-console.log(ks);
+const ks = await createDailyKobroscopes(now.toISODate());
+
+console.log("KS", ks);
+
+process.exit(0);
