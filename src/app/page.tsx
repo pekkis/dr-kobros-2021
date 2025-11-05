@@ -69,13 +69,6 @@ export default function IndexPage() {
                 Kobroscope
               </Link>
             </div>
-
-            <div className={cx(styles.flexxerItem, styles.disabled)}>
-              <div className={styles.flexxerIcon}>
-                <FaLightbulb />
-              </div>
-              Kobro AI
-            </div>
           </nav>
         </div>
       </main>

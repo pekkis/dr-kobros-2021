@@ -22,7 +22,7 @@ const KobroMenu: FC<Props> = ({ nav = true }) => {
           {" | "}
           <Link href="/kobro-dollar">Kobro$</Link>
           {" | "}
-          <Link href="/kobro-ai">Kobro AI</Link>
+          <Link href="/kobroscope">Kobro AI</Link>
         </nav>
       )}
     </div>

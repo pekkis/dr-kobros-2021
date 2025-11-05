@@ -1,3 +1,5 @@
+import { ZodiacLink } from "@/app/kobroscope/[date]/ZodiacLink";
+import { ZodiacLinks } from "@/app/kobroscope/[date]/ZodiacLinks";
 import { KobroscopeContainer } from "@/components/kobroscope/KobroscopeContainer";
 import { zodiacs } from "@/services/kobroscope";
 import { DateTime } from "luxon";
@@ -16,19 +18,11 @@ const KobroscopeDatePage: FC<Props> = async ({ params }) => {
 
   const now = DateTime.fromISO(date);
 
-  const title = `Kobroscopes: ${now.toLocaleString(DateTime.DATE_MED)}`;
+  const title = `Kobroscope: ${now.toLocaleString(DateTime.DATE_MED)}`;
 
   return (
     <KobroscopeContainer title={title}>
-      <ul>
-        {zodiacs.map((zodiac) => {
-          return (
-            <li key={zodiac}>
-              <Link href={`/kobroscope/${date}/${zodiac}`}>{zodiac}</Link>
-            </li>
-          );
-        })}
-      </ul>
+      <ZodiacLinks date={date} />
     </KobroscopeContainer>
   );
 };
