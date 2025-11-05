@@ -1,4 +1,10 @@
 services:
+  db:
+    image: postgres:18
+    restart: always
+    shm_size: 128mb
+    environment:
+      POSTGRES_PASSWORD: possupassu
   next:
     profiles:
       - production
@@ -6,10 +12,13 @@ services:
       MONGO: mongodb://mongo/kobros
       NEXT_PUBLIC_URL: http://www.dr-kobros.com
       NEXT_PUBLIC_API: http://www.dr-kobros.com
+      WORKFLOW_TARGET_WORLD: "@workflow/world-postgres"
+      WORKFLOW_POSTGRES_URL: "postgres://postgres:possupassu@db:5432/postgres"
     build:
       dockerfile: docker/next/Dockerfile
     depends_on:
       - mongo
+      - db
     networks:
       - kobros
     ports:

@@ -1,5 +1,5 @@
 import { DateTime } from "luxon";
-import { FC, useMemo } from "react";
+import { FC } from "react";
 import CertificationBase from "../components/CertificationBase";
 import GaylordSignature from "./certification/GaylordSignature";
 import RagnarSignature from "./certification/RagnarSignature";
@@ -15,13 +15,9 @@ type Props = {
 };
 
 const Certification: FC<Props> = ({ certificate }) => {
-  const d = useMemo(
-    () =>
-      DateTime.fromISO(certificate.date)
-        .setLocale("en")
-        .toLocaleString(DateTime.DATE_MED),
-    [certificate.date]
-  );
+  const d = DateTime.fromISO(certificate.date)
+    .setLocale("en")
+    .toLocaleString(DateTime.DATE_MED);
 
   return (
     <CertificationBase>

@@ -1,0 +1,7 @@
+services:
+  db:
+    ports:
+      - 5432:5432
+  mongo:
+    ports:
+      - 27017:27017

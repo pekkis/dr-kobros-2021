@@ -1,7 +1,8 @@
-import axios from "axios";
+"use client";
+
 import { DateTime } from "luxon";
 import { useRouter } from "next/navigation";
-import { FC, useCallback, useEffect, useMemo, useState } from "react";
+import { FC, useState } from "react";
 import Input from "./certification/Input";
 import CertificationBase from "../components/CertificationBase";
 
@@ -14,6 +15,7 @@ import Padder from "./certification/Padder";
 import ThisIsToCertify from "./certification/ThisIsToCertify";
 import Signatures from "./certification/Signatures";
 import { CertificationType } from "@/app/certificate-create/page";
+import { createCertificate } from "@/services/certificate";
 
 type Props = {
   certificate: CertificationType;
@@ -28,51 +30,29 @@ const CertificationCreator: FC<Props> = ({ certificate, setCertificate }) => {
 
   const router = useRouter();
 
-  const d = useMemo(
-    () =>
-      DateTime.fromISO(certificate.date)
-        .setLocale("en")
-        .toLocaleString(DateTime.DATE_MED),
-    [certificate.date]
-  );
+  const d = DateTime.fromISO(certificate.date)
+    .setLocale("en")
+    .toLocaleString(DateTime.DATE_MED);
 
-  const setWho = useCallback(
-    (who: string) => {
-      setCertificate({
-        ...certificate,
-        who
-      });
-    },
-    [certificate, setCertificate]
-  );
+  const setWho = (who: string) => {
+    setCertificate({
+      ...certificate,
+      who
+    });
+  };
 
-  const setWhat = useCallback(
-    (what: string) => {
-      setCertificate({
-        ...certificate,
-        what
-      });
-    },
-    [certificate, setCertificate]
-  );
+  const setWhat = (what: string) => {
+    setCertificate({
+      ...certificate,
+      what
+    });
+  };
 
-  useEffect(() => {
-    if (!gaylordSigned || !ragnarSigned) {
-      return;
-    }
-
-    setSubmitting(true);
-
-    axios
-      .post<CertificationType>(
-        `${process.env.NEXT_PUBLIC_API}/api/certificate`,
-        certificate
-      )
-      .then((ret) => ret.data)
-      .then((cert) => {
-        router.push(`/certificate/${cert.id}`);
-      });
-  }, [gaylordSigned, ragnarSigned, certificate, router]);
+  const submit = () => {
+    createCertificate(certificate).then((cert) => {
+      router.push(`/certificate/${cert.id}`);
+    });
+  };
 
   return (
     <CertificationBase>
@@ -108,6 +88,10 @@ const CertificationCreator: FC<Props> = ({ certificate, setCertificate }) => {
               signee="Ragnar Kobros, Chairman"
               onSign={() => {
                 setRagnarSigned(true);
+                if (gaylordSigned) {
+                  setSubmitting(true);
+                  submit();
+                }
               }}
             ></SignaturePlaceholder>
           )}
@@ -119,6 +103,10 @@ const CertificationCreator: FC<Props> = ({ certificate, setCertificate }) => {
               signee="Gaylord L. Lohiposki, interim CEO"
               onSign={() => {
                 setGaylordSigned(true);
+                if (ragnarSigned) {
+                  setSubmitting(true);
+                  submit();
+                }
               }}
             ></SignaturePlaceholder>
           )}

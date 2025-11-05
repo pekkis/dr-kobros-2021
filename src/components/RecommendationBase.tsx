@@ -1,4 +1,3 @@
-import Head from "next/head";
 import Image from "next/image";
 import { FC, ReactNode } from "react";
 import logo from "../assets/dr-kobros-logo-large.png";
@@ -12,11 +11,6 @@ type Props = {
 const RecommendationBase: FC<Props> = ({ children }) => {
   return (
     <>
-      <Head>
-        <title>Dr. Kobros Foundation</title>
-        <meta name="description" content="Dr. Kobros Foundation" />
-      </Head>
-
       <main className={styles.main}>
         <div className={styles.flex}>
           <div className={styles.centerer}>

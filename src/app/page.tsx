@@ -9,6 +9,7 @@ import {
   FaThumbsUp,
   FaLightbulb
 } from "react-icons/fa";
+import { TbZodiacCancer } from "react-icons/tb";
 import Link from "next/link";
 import KobroMenu from "@/components/KobroMenu";
 import { Metadata } from "next";
@@ -59,6 +60,16 @@ export default function IndexPage() {
                 Kobro$ crypto currency
               </Link>
             </div>
+
+            <div className={cx(styles.flexxerItem)}>
+              <div className={styles.flexxerIcon}>
+                <TbZodiacCancer />
+              </div>
+              <Link className={styles.link} href="/kobroscope">
+                Kobroscope
+              </Link>
+            </div>
+
             <div className={cx(styles.flexxerItem, styles.disabled)}>
               <div className={styles.flexxerIcon}>
                 <FaLightbulb />

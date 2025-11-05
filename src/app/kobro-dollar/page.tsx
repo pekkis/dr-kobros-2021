@@ -1,18 +1,17 @@
-import Head from "next/head";
 import ContentBase from "@/components/ContentBase";
 import * as styles from "@/kobro-dollar.css";
 import Paragraph from "@/components/content/Paragraph";
 import Chart from "./Chart";
 import InvestButton from "./InvestButton";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Kobro$, the centralized crypto currency - Dr. Kobros Foundation"
+};
 
 const KobroDollarPage = () => {
   return (
     <>
-      <Head>
-        <title>
-          Kobro$, the centralized crypto currency - Dr. Kobros Foundation
-        </title>
-      </Head>
       <ContentBase title="Kobro$, the centralized crypto currency">
         <Paragraph>
           Since it&apos;s inception in 2008, the value of our centralized

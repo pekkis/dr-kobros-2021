@@ -1,16 +1,18 @@
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const { createVanillaExtractPlugin } = require("@vanilla-extract/next-plugin");
+import { withWorkflow } from "workflow/next";
+import { createVanillaExtractPlugin } from "@vanilla-extract/next-plugin";
 const withVanillaExtract = createVanillaExtractPlugin();
 
-const { compose } = require("ramda");
+import { compose } from "ramda";
+import bundleAnalyzer from "@next/bundle-analyzer";
 
-const withBundleAnalyzer = require("@next/bundle-analyzer")({
+const withBundleAnalyzer = bundleAnalyzer({
   enabled: process.env.ANALYZE === "true",
   openAnalyzer: true
 });
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  reactCompiler: true,
   output: "standalone",
   reactStrictMode: true,
   typescript: {
@@ -21,4 +23,8 @@ const nextConfig = {
   }
 };
 
-module.exports = compose(withBundleAnalyzer, withVanillaExtract)(nextConfig);
+export default compose(
+  withWorkflow,
+  withBundleAnalyzer,
+  withVanillaExtract
+)(nextConfig);
