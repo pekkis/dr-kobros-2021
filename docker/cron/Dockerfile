@@ -20,4 +20,4 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
-CMD ["pnpm exec tsx", "scripts/cron.ts"]
+CMD ["pnpm", "exec", "tsx", "scripts/cron.ts"]

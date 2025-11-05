@@ -1,4 +1,4 @@
-import { withWorkflow } from "workflow/next";
+// import { withWorkflow } from "workflow/next";
 import { createVanillaExtractPlugin } from "@vanilla-extract/next-plugin";
 const withVanillaExtract = createVanillaExtractPlugin();
 
@@ -24,7 +24,7 @@ const nextConfig = {
 };
 
 export default compose(
-  withWorkflow,
+  // withWorkflow,
   withBundleAnalyzer,
   withVanillaExtract
 )(nextConfig);
