@@ -8,6 +8,23 @@ services:
     networks:
       - kobros
 
+  cron:
+    profiles:
+      - production
+    environment:
+      MONGO: mongodb://mongo/kobros
+      NEXT_PUBLIC_URL: http://www.dr-kobros.com
+      NEXT_PUBLIC_API: http://www.dr-kobros.com
+      WORKFLOW_TARGET_WORLD: "@workflow/world-postgres"
+      WORKFLOW_POSTGRES_URL: "postgres://postgres:possupassu@db:5432/postgres"
+    build:
+      dockerfile: docker/cron/Dockerfile
+    depends_on:
+      - mongo
+      - db
+    networks:
+      - kobros
+
   next:
     profiles:
       - production
