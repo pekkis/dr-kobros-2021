@@ -1,3 +1,5 @@
+import "dotenv/config";
+
 import { createDailyKobroscopes } from "@/workflow/dailyKobroscopes";
 import { DateTime } from "luxon";
 
