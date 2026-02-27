@@ -1,7 +1,14 @@
 import axios from "axios";
 import { DateTime } from "luxon";
 import { useRouter } from "next/navigation";
-import { FC, useCallback, useEffect, useMemo, useState } from "react";
+import {
+  FC,
+  startTransition,
+  useCallback,
+  useEffect,
+  useMemo,
+  useState
+} from "react";
 import Input from "./certification/Input";
 import CertificationBase from "../components/CertificationBase";
 
@@ -61,7 +68,9 @@ const CertificationCreator: FC<Props> = ({ certificate, setCertificate }) => {
       return;
     }
 
-    setSubmitting(true);
+    startTransition(() => {
+      setSubmitting(true);
+    });
 
     axios
       .post<CertificationType>(

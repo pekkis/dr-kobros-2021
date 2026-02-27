@@ -1,15 +1,16 @@
 minimumReleaseAge: 4320
 
 minimumReleaseAgeExclude:
-  - "@next/third-parties"
-  - "next"
-  - "@next/bundle-analyzer"
-  - "eslint-config-next"
-  - "@next/eslint-plugin-next"
-  - "@next/env"
-  - "react"
-  - "react-dom"
+  - '@next/third-parties'
+  - next
+  - '@next/bundle-analyzer'
+  - eslint-config-next
+  - '@next/eslint-plugin-next'
+  - '@next/env'
+  - react
+  - react-dom
 
 onlyBuiltDependencies:
+  - esbuild
   - sharp
   - unrs-resolver

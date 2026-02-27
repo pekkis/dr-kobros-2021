@@ -1,4 +1,3 @@
-import { v4 } from "uuid";
 import * as yup from "yup";
 import { client } from "@/services/mongo";
 import { CertificationType } from "@/app/certificate-create/page";
@@ -22,7 +21,7 @@ export async function POST(request: NextRequest) {
   const collection = db.collection("certifications");
 
   const certificate: CertificationType = {
-    id: v4(),
+    id: crypto.randomUUID(),
     date: body.date,
     who: body.who,
     what: body.what
