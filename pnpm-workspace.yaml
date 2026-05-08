@@ -9,7 +9,7 @@ minimumReleaseAgeExclude:
   - '@next/env'
   - react
   - react-dom
-
+  - '@next/swc-*'
 onlyBuiltDependencies:
   - esbuild
   - sharp
