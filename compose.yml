@@ -26,7 +26,7 @@ services:
 
   mongo:
     # Pinned by version and digest: upgrades happen when we decide (Dependabot proposes them).
-    image: mongo:8.0.34-noble@sha256:c2d54fddfb3738fb27fe117f51692e3f44e640a3e7aeb8da3937ee9cd33a650b
+    image: mongo:9.0.2-noble@sha256:61dd87ff554dc20386c63ebe1f7ede27314370ad5a7bf357c685fab424672158
     restart: unless-stopped
     volumes:
       - mongodata:/data/db
