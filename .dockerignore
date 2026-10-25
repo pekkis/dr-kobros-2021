@@ -1,0 +1,10 @@
+.git
+.github
+node_modules
+.next
+.swc
+/docker
+.env
+.env.*
+!.env.example
+*.md

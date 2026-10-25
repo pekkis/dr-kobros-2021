@@ -1,12 +1,13 @@
 import { style } from "@vanilla-extract/css";
-import kobroseal from "../assets/kobroseal-smaller.png";
 import { theme } from "../theme.css";
 
 export const certBorder = style({
   borderWidth: "10px",
   borderStyle: "solid",
   borderColor: theme.color.certborder,
-  backgroundImage: `url(${kobroseal.src})`,
+  // Served from public/: Vanilla Extract's Turbopack plugin cannot evaluate Next's image
+  // imports inside .css.ts files.
+  backgroundImage: "url(/kobroseal-smaller.png)",
   backgroundPosition: "100% 100%",
   backgroundRepeat: "no-repeat",
   borderBottomRightRadius: "15px",

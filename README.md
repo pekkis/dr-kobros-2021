@@ -8,7 +8,13 @@ Visit [https://www.dr-kobros.com](https://www.dr-kobros.com)
 
 ## Development
 
-- `cp .env.example .env.local`
-- Configure `.env.local`. You need MongoDB for this.
-- `pnpm i`
+- `cp .env.example .env`
+- `docker compose up -d mongo` (MongoDB on localhost:27017)
+- `pnpm i` (pnpm 12 brings Node 26 by itself: `devEngines` in `package.json`)
 - `pnpm dev`
+- Before pushing: `pnpm check` (typecheck, oxlint, oxfmt, build)
+
+## Deploy
+
+`docker compose up -d --build` on the server: the site (`127.0.0.1:3000`, behind Caddy) and
+MongoDB (`127.0.0.1:27017`, never public).

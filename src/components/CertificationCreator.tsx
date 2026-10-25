@@ -1,4 +1,4 @@
-import axios from "axios";
+import ky from "ky";
 import { DateTime } from "luxon";
 import { useRouter } from "next/navigation";
 import {
@@ -72,12 +72,8 @@ const CertificationCreator: FC<Props> = ({ certificate, setCertificate }) => {
       setSubmitting(true);
     });
 
-    axios
-      .post<CertificationType>(
-        `${process.env.NEXT_PUBLIC_API}/api/certificate`,
-        certificate
-      )
-      .then((ret) => ret.data)
+    ky.post("/api/certificate", { json: certificate })
+      .json<CertificationType>()
       .then((cert) => {
         router.push(`/certificate/${cert.id}`);
       });

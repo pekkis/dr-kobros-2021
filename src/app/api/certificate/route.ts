@@ -1,5 +1,5 @@
 import * as yup from "yup";
-import { client } from "@/services/mongo";
+import { certifications } from "@/services/mongo";
 import { CertificationType } from "@/app/certificate-create/page";
 import { NextResponse, NextRequest } from "next/server";
 
@@ -17,16 +17,14 @@ export async function POST(request: NextRequest) {
     throw new Error("Invalid certificate data");
   }
 
-  const db = client.db("kobros");
-  const collection = db.collection("certifications");
-
   const certificate: CertificationType = {
     id: crypto.randomUUID(),
     date: body.date,
     who: body.who,
     what: body.what
   };
-  await collection.insertOne(certificate);
+  // insertOne adds an _id to the object it is given; insert a copy so the response stays clean.
+  await certifications().insertOne({ ...certificate });
 
   return NextResponse.json(certificate);
 }

@@ -1,22 +1,15 @@
 import { CertificationType } from "@/app/certificate-create/page";
 import Certification from "@/components/Certification";
-import axios from "axios";
+import { certifications } from "@/services/mongo";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { cache } from "react";
 
+// Read straight from the database: a server component needs no HTTP round trip to its own API.
+// _id (an ObjectId) is left out, since only plain values can be passed to client components.
 const getCertificate = cache(
-  async (id: string): Promise<CertificationType | null> => {
-    try {
-      const ret = await axios.get<CertificationType>(
-        `${process.env.NEXT_PUBLIC_API}/api/certificate/${id}`
-      );
-
-      return ret.data;
-    } catch {
-      return null;
-    }
-  }
+  async (id: string): Promise<CertificationType | null> =>
+    certifications().findOne({ id }, { projection: { _id: 0 } })
 );
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {

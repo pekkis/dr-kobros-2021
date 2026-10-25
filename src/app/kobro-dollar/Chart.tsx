@@ -46,10 +46,6 @@ const getData = (): ChartData<"line", number[] | string[], string> => {
       const diff = thisDate.diff(startDate, "days");
 
       return Math.pow((diff.days - 1000) / 800, 6);
-
-      console.log(diff.days, "days");
-
-      return x;
     })
   ];
 

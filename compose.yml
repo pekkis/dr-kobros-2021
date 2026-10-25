@@ -1,31 +1,51 @@
 services:
   next:
-    profiles:
-      - production
-    environment:
-      MONGO: mongodb://mongo/kobros
-      NEXT_PUBLIC_URL: http://www.dr-kobros.com
-      NEXT_PUBLIC_API: http://www.dr-kobros.com
     build:
       dockerfile: docker/next/Dockerfile
+    restart: unless-stopped
+    environment:
+      MONGO: mongodb://mongo/kobros
     depends_on:
-      - mongo
+      mongo:
+        condition: service_healthy
     networks:
       - kobros
+    # Caddy proxies to it; Docker bypasses ufw, so bind to localhost only.
     ports:
-      - 3000:3000
+      - "127.0.0.1:3000:3000"
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "http://127.0.0.1:3000/"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 20s
+
   mongo:
-    profiles:
-      - production
-      - development
-    image: mongo
-    restart: always
+    # Pinned by version and digest: upgrades happen when we decide (Dependabot proposes them).
+    image: mongo:8.0.34-noble@sha256:c2d54fddfb3738fb27fe117f51692e3f44e640a3e7aeb8da3937ee9cd33a650b
+    restart: unless-stopped
     volumes:
       - mongodata:/data/db
     networks:
       - kobros
+    # Localhost only, for `pnpm dev` and mongodump; never public.
+    ports:
+      - "127.0.0.1:27017:27017"
+    healthcheck:
+      test:
+        ["CMD", "mongosh", "--quiet", "--eval", "db.adminCommand('ping').ok"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
+
 networks:
   kobros:
     driver: bridge
+
 volumes:
   mongodata:

@@ -1,4 +1,4 @@
-import { client } from "@/services/mongo";
+import { certifications } from "@/services/mongo";
 import { NextResponse, NextRequest } from "next/server";
 
 export async function GET(
@@ -6,12 +6,10 @@ export async function GET(
   { params }: { params: Promise<{ id: string }> }
 ) {
   const { id } = await params;
-  await client.connect();
-
-  const db = client.db("kobros");
-  const collection = db.collection("certifications");
-
-  const cert = await collection.findOne({ id });
+  const cert = await certifications().findOne(
+    { id },
+    { projection: { _id: 0 } }
+  );
 
   if (!cert) {
     return NextResponse.json({}, { status: 404 });
