@@ -26,7 +26,10 @@ services:
 
   mongo:
     # Pinned by version and digest: upgrades happen when we decide (Dependabot proposes them).
-    image: mongo:8.0.34-noble@sha256:c2d54fddfb3738fb27fe117f51692e3f44e640a3e7aeb8da3937ee9cd33a650b
+    # 7.0, not 8.x: MongoDB 8 refuses to start on Ubuntu 26.04's kernel (7.0.0-NN, which is
+    # really 7.0.14 and fixed), because its startup check reads Ubuntu's version string.
+    # Back to 8.x when https://jira.mongodb.org/browse/SERVER-136848 is fixed. Supported until 2027-08.
+    image: mongo:7.0.45-jammy@sha256:7fba8c37d681a79f22a85d2b06bd5ed121a7973c0a6ca20ed4887bb0a1548ce0
     restart: unless-stopped
     volumes:
       - mongodata:/data/db
